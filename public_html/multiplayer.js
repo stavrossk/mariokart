@@ -195,31 +195,150 @@ onDomReady
 
 
 
-    MarioKart.on("playerSelect", function(msg) {
-        if (playerCount < 2)
-            return;
-        player = msg;
-        socket.json.send({type: "playerJoin", player: msg});
-    });
-    
-    MarioKart.on("playerMapSelect", function(msg) {
-        if (playerCount < 2)
-            return;
-        socket.json.send({type: "playerMapSelect", map: msg, player: player});
-    });
-    
-    MarioKart.on("playerCountChange", function(num) {
-        playerCount = num;
-        if (playerCount === num || num < 2)
-            return;
-        socket.json.send({type: "playerCount", count: num});
-    });
-    
-    MarioKart.on("reset", function(num) {
-        if (playerCount < 2)
-            return;
-        socket.json.send({type: "reset", player: player});
-        clearInterval(timer);
-        lastMove = lastMoveSent = player = null;
-    });
-});
+            MarioKart
+                .on
+                (
+
+                    "playerSelect",
+
+                    function(msg)
+                    {
+
+                         if (playerCount < 2)
+                            return;
+
+                        player = msg;
+
+                        socket
+                            .json
+                            .send
+                            (
+
+                                {
+
+                                    type: "playerJoin",
+
+                                    player: msg
+
+                                }
+
+                            );
+
+
+                    }
+
+                );
+
+
+            MarioKart
+                .on
+                (
+
+                    "playerMapSelect",
+
+                    function(msg)
+                    {
+
+                            if (playerCount < 2)
+                                return;
+
+                            socket
+                                .json
+                                .send
+                                (
+
+                                    {
+
+                                        type: "playerMapSelect",
+
+                                        map: msg,
+
+                                        player: player
+
+                                    }
+
+                                );
+
+                        }
+
+                );
+
+
+
+            MarioKart
+                .on
+                (
+
+                    "playerCountChange",
+
+                    function(num)
+                    {
+
+                        playerCount = num;
+
+                        if (playerCount === num || num < 2)
+                            return;
+
+                        socket
+                            .json
+                            .send
+                            (
+
+                                {
+
+                                    type: "playerCount",
+
+                                    count: num
+
+                                }
+
+                            );
+
+                    }
+
+                );
+
+
+
+
+             MarioKart
+                 .on
+                (
+
+                    "reset",
+
+                    function(num)
+                    {
+
+                        if (playerCount < 2)
+                            return;
+
+                        socket
+                            .json
+                            .send
+                            (
+
+                                {
+
+                                    type: "reset",
+
+                                    player: player
+
+                                }
+
+                            );
+
+                         clearInterval(timer);
+
+                         lastMove = lastMoveSent = player = null;
+
+                    }
+
+                );
+
+
+
+    }
+
+
+);
